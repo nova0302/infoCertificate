@@ -1,51 +1,59 @@
 
-* [[https://www.enterprisestorageforum.com/hardware/paging-and-segmentation/#:~:text=Paging%20is%20a%20computer%20memory,additional%20memory,%20called%20virtual%20memory.&text=Segmentation%20is%20a%20virtual%20process,for%20related%20data,%20called%20segments.][Paging and Segmentation]]
-  - processes by which data is stored to, the retrieved from, a computer's storage disk.
-** Paging
-   - a computer memory management function that presents storage locations to the computer's CPU as additional memory, called virtual memory. 
-   - Each piece of data needs a storage address
-** Segmentation
-   - a virtual process that creates variable-size address spaces in computer storage for related data, called segments.
-   - This process speed retrieval.
-** Managing computer memory is a basic operating system function
-   - both- paging and segmentation are basic functions of the OS.
-   - No system can efficiently rely on limited RAM alone. So the computer's memory
-   - management unit(MMU) uses the storage disk, HDD or SSD, as virtual memory to supplement RAM
+* Virtual Memory
+** [[https://www.enterprisestorageforum.com/hardware/paging-and-segmentation/#:~:text=Paging%20is%20a%20computer%20memory,additional%20memory,%20called%20virtual%20memory.&text=Segmentation%20is%20a%20virtual%20process,for%20related%20data,%20called%20segments.][Paging and Segmentation]]
+   - processes by which data is stored to, then retrieved from, a computer's storage disk.
+*** Paging
+    - a computer memory management function that presents storage locations to the computer's CPU as additional memory, called virtual memory. 
+    - Each piece of data needs a storage address
+*** Segmentation
+    - a virtual process that creates variable-size address spaces in computer storage for related data, called segments.
+    - This process speed retrieval.
+*** Managing computer memory is a basic operating system function
+    - both- paging and segmentation are basic functions of the OS.
+    - No system can efficiently rely on limited RAM alone. So the computer's memory
+    - management unit(MMU) uses the storage disk, HDD or SSD, as virtual memory to supplement RAM
 
-* What is Paging?
-  - paging = memory management function
-  - specifies storage locations to the CPU as additional memory, called virtual memory.
-  - The CPU cannot directly access storage disk, so the MMU emulates memory by mapping pages to frames that are in RAM.
-** Page
-   - A fixed-length contiguous block of virtual memory residing on disk.
+** What is Paging?
+   - paging = memory management function
+   - specifies storage locations to the CPU as additional memory, called virtual memory.
+   - The CPU cannot directly access storage disk, so the MMU emulates memory by mapping pages to frames that are in RAM.
+*** Page
+    - A fixed-length contiguous block of virtual memory residing on disk.
      
-** Frame
-   - A fixed-length contiguous block located in RAM; whose sizing is *identical* to pages.
-** Physical memory
-    - The computer's random access memory(RAM), typically contained in DIMM cards attached to the computer's mothereboard.
-** Virtual memory
-   - A portion of an HDD or SSD that is reserved to emulate RAM.
-   - The MMU serves up virtual memory from disk to the CPU to reduce the workload on physical momory.
-** Virtual address
-   - The CPU generates a virtual address for each active process.
-   - The MMU maps the virtual address to a physical location in RAM
-   - and passes the address to the bus. A virtual address space is the range of
-   - virtual addresses under CPU control
+*** Frame
+    - A fixed-length contiguous block located in RAM; whose sizing is *identical* to pages.
+*** Physical memory
+     - The computer's random access memory(RAM), typically contained in DIMM cards attached to the computer's mothereboard.
+*** Virtual memory
+    - A portion of an HDD or SSD that is reserved to emulate RAM.
+    - The MMU serves up virtual memory from disk to the CPU to reduce the workload on physical momory.
+*** Virtual address
+    - The CPU generates a virtual address for each active process.
+    - The MMU maps the virtual address to a physical location in RAM
+    - and passes the address to the bus. A virtual address space is the range of
+    - virtual addresses under CPU control
  
-** Physical address
-   - A location in RAM.
-   - The physical address space is the set of all physical addresses coresponding to the
-   - CPU's virtual addresses.
-   - A physical address space is the range of physical addresses under MMU control.
+*** Physical address
+    - A location in RAM.
+    - The physical address space is the set of all physical addresses coresponding to the
+    - CPU's virtual addresses.
+    - A physical address space is the range of physical addresses under MMU control.
 
    
-* What is Segmentation?
-  - A virtual process that creates address spaces of various sizes in a computer system, called segments.
-  - Each segment is a different virtual address space that directly corresponds to process objects.
-  - When a process executes, segmentation assigns related data into segments for taster processing.
-  - The sementation function maintains a segment table that includes physical addresses of the segment, size, and other data.
-  - 
+** What is Segmentation?
+   - A virtual process that creates address spaces of various sizes in a computer system, called segments.
+   - Each segment is a different virtual address space that directly corresponds to process objects.
+   - When a process executes, segmentation assigns related data into segments for taster processing.
+   - The sementation function maintains a segment table that includes physical addresses of the segment, size, and other data.
+   - 
+** [[https://www.geeksforgeeks.org/difference-between-paging-and-segmentation/][Difference Between Paging and Segmentation]]
 
+   
+* Preemptive(선점형)
+  - 하나의 task가 Scheduler로 부터 CPU를 사용권을 할당 받았을 때, Task가 자발적으로 CPU사용권을 반납할 때까지
+  - 강제적으로 CPU의 제어권을 빼앗을 수 없는 Multitasking 방식을 비선점형(Non-preemptive)
+  - 이와 반대로 Scheduler의 필요에 따라 Task로 부터 CPU의 제어권을 강제적으로 빼앗아 다른 Task가 실행 될 수 있도록
+  - Task의 실행 순서를 결정하는 Multitasking방식을 선점형(Preemptive)Multitasking이라 한다.
     
 * [[https://www.youtube.com/watch?v=bfWxAG1vUM4][Segmentation Fault]]
     
