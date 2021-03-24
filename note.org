@@ -57,3 +57,8 @@
     
 * [[https://www.youtube.com/watch?v=bfWxAG1vUM4][Segmentation Fault]]
     
+
+*  가상메모리 관련 Youtube Videos
+** https://www.youtube.com/watch?v=KqHNaOrxttM
+   
+** https://www.youtube.com/watch?v=p9yZNLeOj4s
