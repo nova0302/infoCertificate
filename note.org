@@ -1,5 +1,12 @@
+*  가상메모리 관련 Youtube Videos
+  
+** https://www.youtube.com/watch?v=qcBIvnQt0Bw&list=PLiwt1iVUib9s2Uo5BeYmwkDFUh70fJPxX
 
-* Virtual Memory
+** https://www.youtube.com/watch?v=KqHNaOrxttM
+   
+** https://www.youtube.com/watch?v=p9yZNLeOj4s
+
+* 가상 메모리 관련 (Virtual Memory)
 ** [[https://www.enterprisestorageforum.com/hardware/paging-and-segmentation/#:~:text=Paging%20is%20a%20computer%20memory,additional%20memory,%20called%20virtual%20memory.&text=Segmentation%20is%20a%20virtual%20process,for%20related%20data,%20called%20segments.][Paging and Segmentation]]
    - processes by which data is stored to, then retrieved from, a computer's storage disk.
 *** Paging
@@ -17,37 +24,38 @@
    - paging = memory management function
    - specifies storage locations to the CPU as additional memory, called virtual memory.
    - The CPU cannot directly access storage disk, so the MMU emulates memory by mapping pages to frames that are in RAM.
-*** Page
+*** 페이지(Page)
     - A fixed-length contiguous block of virtual memory residing on disk.
-     
+
 *** Frame
     - A fixed-length contiguous block located in RAM; whose sizing is *identical* to pages.
-*** Physical memory
+
+*** 물리 메모리 (Physical memory)
      - The computer's random access memory(RAM), typically contained in DIMM cards attached to the computer's mothereboard.
-*** [[https://en.wikipedia.org/wiki/Virtual_memory][Virtual memory]]
+
+*** 가상 메모리 ([[https://en.wikipedia.org/wiki/Virtual_memory][Virtual memory]])
     - A portion of an HDD or SSD that is reserved to emulate RAM.
     - The MMU serves up virtual memory from disk to the CPU to reduce the workload on physical momory.
-*** Virtual address
+
+*** 가상 주소 (Virtual address)
     - The CPU generates a virtual address for each active process.
     - The MMU maps the virtual address to a physical location in RAM
     - and passes the address to the bus. A virtual address space is the range of
     - virtual addresses under CPU control
  
-*** Physical address
+*** 물리 주소 (Physical address)
     - A location in RAM.
     - The physical address space is the set of all physical addresses coresponding to the
     - CPU's virtual addresses.
     - A physical address space is the range of physical addresses under MMU control.
-
    
-** What is Segmentation?
+** 세그먼테이션이란? (What is Segmentation?)
    - A virtual process that creates address spaces of various sizes in a computer system, called segments.
    - Each segment is a different virtual address space that directly corresponds to process objects.
    - When a process executes, segmentation assigns related data into segments for taster processing.
    - The sementation function maintains a segment table that includes physical addresses of the segment, size, and other data.
    - 
-** [[https://www.geeksforgeeks.org/difference-between-paging-and-segmentation/][Difference Between Paging and Segmentation]]
-
+** 페이징과 세그먼테이션의 차이점? ([[https://www.geeksforgeeks.org/difference-between-paging-and-segmentation/][Difference Between Paging and Segmentation]]) 
    
 * Preemptive(선점형)
   - 하나의 task가 Scheduler로 부터 CPU를 사용권을 할당 받았을 때, Task가 자발적으로 CPU사용권을 반납할 때까지
@@ -56,9 +64,42 @@
   - Task의 실행 순서를 결정하는 Multitasking방식을 선점형(Preemptive)Multitasking이라 한다.
     
 * [[https://www.youtube.com/watch?v=bfWxAG1vUM4][Segmentation Fault]]
-    
 
-*  가상메모리 관련 Youtube Videos
-** https://www.youtube.com/watch?v=KqHNaOrxttM
    
-** https://www.youtube.com/watch?v=p9yZNLeOj4s
+* 쓰레드 예제 Thread example(c++)
+#+BEGIN_SRC c++
+
+#include <iostream>
+#include <thread>
+using namespace std;
+
+static bool s_Finished = false;
+void doWork1()
+{
+    using namespace std::literals::chrono_literals;
+    while(!s_Finished){
+        std::cout << "worker1 is Working!!!...\n";
+        std::this_thread::sleep_for(1s);
+    }
+}
+void doWork2()
+{
+    using namespace std::literals::chrono_literals;
+    while(!s_Finished){
+        std::cout << "worker2 is Working!!!...\n";
+        std::this_thread::sleep_for(2s);
+    }
+}
+
+int main() {
+    std::thread worker1(doWork1);
+    std::thread worker2(doWork2);
+    std::cin.get();
+    s_Finished = true;
+    worker1.join();
+    worker2.join();
+    std::cout << "Finished...." << std::endl;
+    
+    return 0;
+}
+#+END_SRC
