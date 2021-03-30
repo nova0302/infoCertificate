@@ -64,12 +64,14 @@
   - Task의 실행 순서를 결정하는 Multitasking방식을 선점형(Preemptive)Multitasking이라 한다.
     
 * [[https://www.youtube.com/watch?v=bfWxAG1vUM4][Segmentation Fault]]
-#+CAPTION: This is the caption for the next figure link (or table)
-#+NAME:   fig:SED-HR4049
-[[./images/cpp_compiler.jpg][tdm-gcc compiler]]
   
 * [[https://jmeubank.github.io/tdm-gcc/articles/2020-03/9.2.0-release][tdm-gcc]] C++ 컴파일러 링크
    
+#+CAPTION: This is the caption for the next figure link (or table)
+#+NAME:   fig:SED-HR4049
+[[./images/cpp_compiler.jpg][tdm-gcc compiler]]
+
+
 * 쓰레드 예제 Thread example(c++)
 #+BEGIN_SRC c++
 
