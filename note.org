@@ -63,9 +63,10 @@
   - 이와 반대로 Scheduler의 필요에 따라 Task로 부터 CPU의 제어권을 강제적으로 빼앗아 다른 Task가 실행 될 수 있도록
   - Task의 실행 순서를 결정하는 Multitasking방식을 선점형(Preemptive)Multitasking이라 한다.
     
-* [[https://www.youtube.com/watch?v=bfWxAG1vUM4][Segmentation Fault]]
+* [[https://www.youtube.com/watch?v=bfWxAG1vUM4][Segmentation Fault]] 세그먼테이션 폴트에 대한 유튜브 동영상 링크
   
 * [[https://jmeubank.github.io/tdm-gcc/articles/2020-03/9.2.0-release][tdm-gcc]] C++ 컴파일러 링크
+  ./images/cpp_compiler.jpg
    
 #+CAPTION: This is the caption for the next figure link (or table)
 #+NAME:   fig:SED-HR4049
