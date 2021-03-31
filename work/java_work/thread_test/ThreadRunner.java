@@ -1,3 +1,6 @@
+//https://www.youtube.com/watch?v=wcMfu5Voxos
+//https://github.com/discospiff/ThreadExamples
+
 package edu.uc.jonesbr.threaddemo;
 
 public class ThreadRunner {
@@ -94,9 +97,7 @@ public class ThreadRunner {
 		    e.printStackTrace();
 		}
 	    }
-			
 	}
-		
     }
 	
     class Concurrent2 implements Runnable {
@@ -111,7 +112,6 @@ public class ThreadRunner {
 		    // TODO Auto-generated catch block
 		    e.printStackTrace();
 		}
-				
 	    }
 	}
     }
@@ -134,9 +134,7 @@ public class ThreadRunner {
 		    }
 		}
 	    }
-			
 	}
-		
     }
 	
     class NotifyThread implements Runnable {
