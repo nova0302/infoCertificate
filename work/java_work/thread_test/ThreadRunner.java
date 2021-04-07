@@ -26,14 +26,14 @@ public class ThreadRunner {
 //		Thread tst = new Thread(st);
 //		tst.start();
 //		
-//		LowPriority lp = new LowPriority();
-//		HighPriority hp = new HighPriority();
-//		Thread tlp = new Thread(lp);
-//		tlp.setPriority(Thread.MIN_PRIORITY);
-//		Thread thp = new Thread(hp);
-//		thp.setPriority(Thread.MAX_PRIORITY);
-//		tlp.start();
-//		thp.start();
+	//LowPriority lp = new LowPriority();
+	//HighPriority hp = new HighPriority();
+	//Thread tlp = new Thread(lp);
+	//tlp.setPriority(Thread.MIN_PRIORITY);
+	//Thread thp = new Thread(hp);
+	//thp.setPriority(Thread.MAX_PRIORITY);
+	//tlp.start();
+	//thp.start();
 		
 		
 	Concurrent1 c1 = new Concurrent1();

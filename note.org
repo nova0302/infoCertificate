@@ -56,6 +56,11 @@
    - The sementation function maintains a segment table that includes physical addresses of the segment, size, and other data.
    - 
 ** 페이징과 세그먼테이션의 차이점? ([[https://www.geeksforgeeks.org/difference-between-paging-and-segmentation/][Difference Between Paging and Segmentation]]) 
+   - [[https://www.enterprisestorageforum.com/hardware/paging-and-segmentation/#:~:text=Paging%2520is%2520a%2520computer%2520memory,additional%2520memory,%2520called%2520virtual%2520memory.&text=Segmentation%2520is%2520a%2520virtual%2520process,for%2520related%2520data,%2520called%2520segments][페이징과 세크먼테이션에 관한 괜찬은 링크]].
+   
+** [[https://en.wikipedia.org/wiki/Working_set#:~:text=Working%2520set%2520is%2520a%2520concept,in%2520a%2520given%2520time%2520interval][Working set]].
+   - 어떤 주어진 시간에 프로세스가 요구하는 메모리의 양(페이지 수)
+   - 한개의 프로세스가 효율적으로 실행되기 위해 메인메모리에 얼마나 많은 페이지가 올라와 있어야 하는가?
    
 * Preemptive(선점형)
   - 하나의 task가 Scheduler로 부터 CPU를 사용권을 할당 받았을 때, Task가 자발적으로 CPU사용권을 반납할 때까지
@@ -74,6 +79,7 @@
 
 
 * 쓰레드 예제 Thread example(c++)
+  - https://www.youtube.com/watch?v=wXBcwHwIt_I
 #+BEGIN_SRC c++
 
 #include <iostream>
