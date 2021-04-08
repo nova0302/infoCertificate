@@ -1,3 +1,5 @@
+* [[https://www.youtube.com/watch?v=PlavjNH_RRU&t=247s][인스트럭션 셑(ISA)에 관한 유투브 도영상 링크]]
+
 *  가상메모리 관련 Youtube Videos
   
 ** https://www.youtube.com/watch?v=qcBIvnQt0Bw&list=PLiwt1iVUib9s2Uo5BeYmwkDFUh70fJPxX
