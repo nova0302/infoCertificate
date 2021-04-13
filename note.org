@@ -120,6 +120,15 @@ int main() {
 #+END_SRC
 
 
-* java
+* [[https://linuxhint.com/c_fork_system_call/][fork]]
+  - a way to request services from kernnel
+  - create a new process
+  - no argument
+  - process Id of the *child* process
+  - After creation of the process both parent and child process
+  - starts execution from the next instruction.
+  - fork() > 0 *successful*
+  - fork() < 0 *error*
+  - fork() == 0 *child proces
+    
 
-**  [[https://www.w3schools.com/java/java_packages.asp][java package & API]]

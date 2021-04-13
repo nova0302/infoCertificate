@@ -1,0 +1,66 @@
+	.file	""
+	.text
+	.def	__main;	.scl	2;	.type	32;	.endef
+	.section .rdata,"dr"
+.LC0:
+	.ascii "Child is running, processing.\0"
+.LC1:
+	.ascii "Child is done, exiting.\0"
+.LC2:
+	.ascii "Parent is waiting...\0"
+.LC3:
+	.ascii "Parent is exiting...\0"
+	.align 8
+.LC4:
+	.ascii "Error while calling the fork function.\12\0"
+	.text
+	.globl	main
+	.def	main;	.scl	2;	.type	32;	.endef
+	.seh_proc	main
+main:
+	pushq	%rbp
+	.seh_pushreg	%rbp
+	movq	%rsp, %rbp
+	.seh_setframe	%rbp, 0
+	subq	$48, %rsp
+	.seh_stackalloc	48
+	.seh_endprologue
+	movl	%ecx, 16(%rbp)
+	movq	%rdx, 24(%rbp)
+	call	__main
+	call	fork
+	movl	%eax, -4(%rbp)
+	cmpl	$0, -4(%rbp)
+	jne	.L2
+	leaq	.LC0(%rip), %rcx
+	call	puts
+	movl	$5, %ecx
+	call	sleep
+	leaq	.LC1(%rip), %rcx
+	call	puts
+	jmp	.L3
+.L2:
+	cmpl	$-1, -4(%rbp)
+	je	.L4
+	leaq	.LC2(%rip), %rcx
+	call	puts
+	movl	$0, %ecx
+	call	wait
+	leaq	.LC3(%rip), %rcx
+	call	puts
+	jmp	.L3
+.L4:
+	leaq	.LC4(%rip), %rcx
+	call	perror
+.L3:
+	movl	$0, %eax
+	addq	$48, %rsp
+	popq	%rbp
+	ret
+	.seh_endproc
+	.ident	"GCC: (GNU) 9.3.0"
+	.def	fork;	.scl	2;	.type	32;	.endef
+	.def	puts;	.scl	2;	.type	32;	.endef
+	.def	sleep;	.scl	2;	.type	32;	.endef
+	.def	wait;	.scl	2;	.type	32;	.endef
+	.def	perror;	.scl	2;	.type	32;	.endef
