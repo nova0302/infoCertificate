@@ -120,6 +120,15 @@ int main() {
 #+END_SRC
 
 
+* [[https://stackoverflow.com/questions/7811792/confused-between-temporal-and-spatial-locality-in-real-life-code#:~:text=The%2520principle%2520of%2520Temporal%2520locality,being%2520executed%2520very%2520close%2520together][Locality]].
+  
+#+BEGIN_SRC c
+sum = 0; // sum : Temporal Locality
+for (i = 0; i < arr.length; i++)
+  sum += arr[i]; // arr[i] : Spatial Locality
+return sum;
+
+#+END_SRC
 * [[https://linuxhint.com/c_fork_system_call/][fork]]
   - a way to request services from kernnel
   - create a new process
@@ -130,5 +139,35 @@ int main() {
   - fork() > 0 *successful*
   - fork() < 0 *error*
   - fork() == 0 *child proces
+    
+[[https://linuxhint.com/c_fork_system_call/][fork example]]
+
+#+BEGIN_SRC c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main(int argc, char *argv[])
+{
+    pid_t forkStatus = fork();
+    /* Child... */
+    if (forkStatus == 0) {
+	printf("Child is running, processing.\n");
+	sleep(5);
+	printf("Child is done, exiting.\n");
+    }else if (forkStatus != -1) {
+	printf("Parent is waiting...\n");
+	wait(NULL);
+	printf("Parent is exiting...\n");
+    }else{
+	perror("Error while calling the fork function.\n");
+    }
+    return 0;
+}
+
+#+END_SRC
     
 
