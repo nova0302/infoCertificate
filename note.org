@@ -122,6 +122,15 @@ int main() {
 
 * [[https://stackoverflow.com/questions/7811792/confused-between-temporal-and-spatial-locality-in-real-life-code#:~:text=The%2520principle%2520of%2520Temporal%2520locality,being%2520executed%2520very%2520close%2520together][Locality]].
   
+** Temporal Locality 
+   - Temporal locality means current data or instruction that is being fetched may be needed soon.
+   - So we should store that data or instruction in the cache memory
+   - so that we can avoid again searching in main memory for the same data and thus saving time.
+     
+** Spatial Locality 
+   - Spatial locality means instruction or data near to the current memory location that is being fetched,
+   - may be needed soon in near future.
+  
 #+BEGIN_SRC c
 sum = 0; // sum : Temporal Locality
 for (i = 0; i < arr.length; i++)
@@ -129,7 +138,7 @@ for (i = 0; i < arr.length; i++)
 return sum;
 
 #+END_SRC
-* [[https://linuxhint.com/c_fork_system_call/][fork]]
+*  [[https://www.youtube.com/watch?v=_kUiH8DG-Ao][fork youtube video]]
   - a way to request services from kernnel
   - create a new process
   - no argument
