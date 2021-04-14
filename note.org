@@ -122,12 +122,12 @@ int main() {
 
 * [[https://stackoverflow.com/questions/7811792/confused-between-temporal-and-spatial-locality-in-real-life-code#:~:text=The%2520principle%2520of%2520Temporal%2520locality,being%2520executed%2520very%2520close%2520together][Locality]].
   
-** Temporal Locality 
+** 시간구역성(Temporal Locality )
    - Temporal locality means current data or instruction that is being fetched may be needed soon.
    - So we should store that data or instruction in the cache memory
    - so that we can avoid again searching in main memory for the same data and thus saving time.
      
-** Spatial Locality 
+** 공간구역성(Spatial Locality )
    - Spatial locality means instruction or data near to the current memory location that is being fetched,
    - may be needed soon in near future.
   
@@ -178,5 +178,53 @@ int main(int argc, char *argv[])
 }
 
 #+END_SRC
+
+* [[https://www.youtube.com/watch?v=mj2VjcOXXs4][exec]] example
+  
+#+BEGIN_SRC c
+//helloExec.c
+#include <stdio.h>
+#include <unistd.h>
+int favNum = 84;
+
+int main(int argc, char *argv[])
+{
+    printf("helloExec.c: vavNum: %d\n", favNum);
+    printf("  My PID %d\n", getpid());
+
+    printf("  My arguments: \n");
+    for (int i=0; i<argc; ++i) {
+	printf("%d: %s\n", i, argv[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+#+END_SRC
+  
+#+BEGIN_SRC c
+//execDemo.c
+#include <stdio.h>
+#include <unistd.h>
+int favNum = 42;
+
+int main(int argc, char *argv[])
+{
+    printf("execDemo: My pid is %d.\n", getpid());
+    char *args[]={"./helloExec", "hello", "world", NULL};
+    // with L : comma separated arguemnts
+    // with V : Vector (i.e., an array of strings)
+    // with P : Include normal search path for executable
+    //execvp("./helloExec.exe", args);
+    execvp(args[0], args);
+    printf("Farewell cruel world!!\n");
+
+    return 0;
+}
+
+#+END_SRC
+
     
 
+* fork anc exec 데모
