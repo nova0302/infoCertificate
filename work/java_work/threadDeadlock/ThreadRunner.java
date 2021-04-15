@@ -11,7 +11,6 @@ public class ThreadRunner {
 	tr.runThreads();
 		
     }
-
     public void runThreads() {
 	Concurrent1 c1 = new Concurrent1();
 	Concurrent2 c2 = new Concurrent2();
@@ -20,16 +19,13 @@ public class ThreadRunner {
 	tc1.start();
 	tc2.start();
     }
-	
     public void forceDeadlock() {
 	synchronized (lock2) {
 	    synchronized(lock1) {
 		System.out.println("Do work");
 	    }
 	}
-		
     }
-	
     class Concurrent1 implements Runnable {
 	@Override
 	public void run() {
@@ -57,7 +53,6 @@ public class ThreadRunner {
 	    }
 	}
     }
-	
     class Concurrent2 implements Runnable {
 	@Override
 	public void run() {
