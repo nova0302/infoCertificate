@@ -5,32 +5,42 @@ https://drive.google.com/drive/folders/1COFYDK2_n9Ak4vyYUxfOdlzSZMQWWbFg?usp=sha
 
 ### 1. c
 #### 1. 소스코드
+```
 //hello.c
 #include <stdio.h>
    int main(){
    printf("Hello World\n");
 }
+```
 #### 2. 컴파일
-gcc hello.c
+>gcc hello.c
 #### 3. 실행
-./a.out
+>./a.out
 
 ### 2. java
 
 #### 1. 소스코드
+```
 //hello.java
 public class Hello{
    public static void main(String[] args){
    System.out.println("Hello World\n");
    }
 }
+```
 #### 2. 실행
-java hello.java
+```
+>java hello.java
+```
 
 ### 3. python
 #### 1. 소스코드
+```
 //hello.python
 print('Hello World')
+```
 
 #### 2. 실행
-python3 hello.py
+```
+>python3 hello.py
+```
