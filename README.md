@@ -8,8 +8,9 @@ https://drive.google.com/drive/folders/1COFYDK2_n9Ak4vyYUxfOdlzSZMQWWbFg?usp=sha
 ```
 //hello.c
 #include <stdio.h>
-   int main(){
-   printf("Hello World\n");
+int main(){
+   printf("Hello World\n");;
+   return 0;;
 }
 ```
 #### 2. 컴파일
@@ -24,8 +25,8 @@ https://drive.google.com/drive/folders/1COFYDK2_n9Ak4vyYUxfOdlzSZMQWWbFg?usp=sha
 //hello.java
 public class Hello{
    public static void main(String[] args){
-   System.out.println("Hello World\n");
-   }
+      System.out.println("Hello World\n");
+  }
 }
 ```
 #### 2. 실행
