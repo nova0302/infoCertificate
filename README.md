@@ -5,23 +5,25 @@ https://drive.google.com/drive/folders/1COFYDK2_n9Ak4vyYUxfOdlzSZMQWWbFg?usp=sha
 
 ### 1. c
 #### 1. 소스코드
-```
+```c
 //hello.c
 #include <stdio.h>
 int main(){
-   printf("Hello World\n");;
+   printf("Hello World\n");
    return 0;;
 }
 ```
 #### 2. 컴파일
+```shell
 >gcc hello.c
+```
 #### 3. 실행
 >./a.out
 
 ### 2. java
 
 #### 1. 소스코드
-```
+```java
 //hello.java
 public class Hello{
    public static void main(String[] args){
@@ -30,18 +32,18 @@ public class Hello{
 }
 ```
 #### 2. 실행
-```
+```shell
 >java hello.java
 ```
 
 ### 3. python
 #### 1. 소스코드
-```
+```python
 //hello.python
 print('Hello World')
 ```
 
 #### 2. 실행
-```
+```shell
 >python3 hello.py
 ```
