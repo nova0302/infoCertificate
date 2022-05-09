@@ -1,0 +1,15 @@
+* Network Related Topic
+
+** windows && linux commands
+
+*** ping
+#+begin_src shell
+$ping -c 4 google.com
+#+end_src
+  
+*** tracert
+#+begin_src shell
+$tracert google.com
+#+end_src
+
+* [[https://www.youtube.com/watch?v=up3bcBLZS74][tracert youtube video]]
