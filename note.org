@@ -64,6 +64,7 @@
    - 어떤 주어진 시간에 프로세스가 요구하는 메모리의 양(페이지 수)
    - 한개의 프로세스가 효율적으로 실행되기 위해 메인메모리에 얼마나 많은 페이지가 올라와 있어야 하는가?
    
+** [[https://brownbears.tistory.com/47?category=192030][가상메모리관련 한글 사이트]]
 * Preemptive(선점형)
   - 하나의 task가 Scheduler로 부터 CPU를 사용권을 할당 받았을 때, Task가 자발적으로 CPU사용권을 반납할 때까지
   - 강제적으로 CPU의 제어권을 빼앗을 수 없는 Multitasking 방식을 비선점형(Non-preemptive)
@@ -256,3 +257,8 @@ public class ThreadDemo{
 }
 
 #+END_SRC
+
+* Unix System Calls(1/2)
+  
+** [[https://www.youtube.com/watch?v=xHu7qI1gDPA&t=16s][Unix System calls(1/2)]]
+** [[https://www.youtube.com/watch?v=xHu7qI1gDPA&t=16s][Unix System calls(1/2)]]
