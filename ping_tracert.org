@@ -13,3 +13,126 @@ $tracert google.com
 #+end_src
 
 * [[https://www.youtube.com/watch?v=up3bcBLZS74][tracert youtube video]]
+
+* python socket communication examples
+
+** 1. udp 
+*** 1.1 server code
+#+begin_src python
+  #!/usr/bin/python3
+#https://pythontic.com/modules/socket/udp-client-server-example
+
+import socket
+
+bufferSize = 1024
+srvPort = 20001
+
+
+#Create a datagram socket
+UDPServerSocket = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+
+#Bint to address and IP
+UDPServerSocket.bind(('', srvPort))
+print('UDP server up and listening')
+
+i = 0
+#Listening for incomming datagrams
+while True:
+    message, address = UDPServerSocket.recvfrom(bufferSize)
+
+    print(f'Message from Client:{message}')
+    print(f'Client IP Address:{address}')
+
+    msgFromServer = f"{i}: Hello UDP Client"
+    bytesToSend = str.encode(msgFromServer)
+    #Sending a reply to client
+    UDPServerSocket.sendto(bytesToSend, address)
+    i += 1
+
+#+end_src
+
+*** 1.1 client code
+#+begin_src python
+ #!/usr/bin/python3
+
+#https://pythontic.com/modules/socket/udp-client-server-example
+
+import socket, time
+
+serverAddressPort = ('192.168.0.30', 20001)
+#serverAddressPort = ('192.168.0.100', 20001)
+
+bufferSize = 1024
+
+#Create a datagram socket
+i = 8
+with socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM) as s: 
+    while True:
+        if i < 0:
+            break
+        bytesToSend = str.encode(f'{i} : Hello Server\n')
+
+        s.sendto(bytesToSend, serverAddressPort)
+
+        msgFromServer, address = s.recvfrom(bufferSize)
+
+        print(f'Message from Server {msgFromServer}')
+        print(f'address : {address}')
+        i -= 1
+        time.sleep(1)
+ 
+#+end_src
+
+** 2. tcp 
+
+*** 2.1 server code
+#+begin_src python
+ #!/usr/bin/python3
+
+import socket
+serverPort = 20001
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+    s.bind(('', serverPort))
+    s.listen()
+    conn, addr = s.accept()
+    with conn:
+        print(f'Connected by {addr}')
+        while True:
+            msg = conn.recv(1024)
+            if not msg:
+                break
+            conn.sendall(msg)
+
+
+#https://realpython.com/python-sockets/
+#https://pimylifeup.com/raspberry-pi-ufw/
+ 
+#+end_src
+
+*** 2.1 client code
+#+begin_src python
+ #!/usr/bin/python3
+
+import socket
+
+srvAddr = '192.168.0.30'
+#srvAddr = '192.168.0.100'
+srvPort = 20001
+
+
+print(f'Connecting to {srvAddr}')
+
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+
+    s.connect((srvAddr, srvPort))
+    print('Connected!!')
+
+    s.sendall(b'Hello World\n')
+    print('Sent!!')
+
+    d = s.recv(1024)
+
+print(f'Received {d}')
+ 
+#+end_src
